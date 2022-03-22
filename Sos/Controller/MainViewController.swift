@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
+import AVFoundation
 
 class MainViewController: UIViewController{
-        
+    
+        var locationManager:CLLocationManager!
         @IBOutlet var mSwitch: UISwitch!
         @IBOutlet var lblSiren: UILabel!
         var timer = Timer()
@@ -17,31 +20,27 @@ class MainViewController: UIViewController{
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view.
-            
+            locationManager = CLLocationManager()
+            locationManager.requestWhenInUseAuthorization()
             mSwitch.tintColor = UIColor.white
             mSwitch.layer.cornerRadius = mSwitch.frame.height / 2.0
         mSwitch.backgroundColor = UIColor.white
         mSwitch.clipsToBounds = true
          
     }
-
-   
     
     @IBAction func btnSosDown(_ sender: UIButton) {
-        print("누를떄")
-        
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(counter), userInfo: nil, repeats : true)
     }
 
     @IBAction func btnSosUp(_ sender: UIButton) {
-        print("땔대")
         timer.invalidate()
     }
     
     @objc func counter() {
-        print("실행완료")
         timer.invalidate()
         self.performSegue(withIdentifier: "sosResult", sender: self)
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
