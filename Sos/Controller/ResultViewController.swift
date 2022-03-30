@@ -9,26 +9,28 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class ResultViewController: UIViewController, CLLocationManagerDelegate {
+class ResultViewController: UIViewController {
     
     @IBOutlet var lblLocation: UILabel!
     var sirenSound : AVAudioPlayer!
     var siren :Bool?
-    var locationManager:CLLocationManager!
-    var latitude:CLLocationDegrees?
-    var longitude:CLLocationDegrees?
+    let locationManager = CLLocationManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblLocation.numberOfLines = 0
-        
-        locationCheck()
         sirenCheck()
+        navigationItem.hidesBackButton = true
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         
     }
     
     @IBAction func btnHome(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func sirenCheck() {
@@ -48,22 +50,7 @@ class ResultViewController: UIViewController, CLLocationManagerDelegate {
             sirenSound.play() // 재생버튼!
         }
     }
-    
-    func locationCheck() {
 
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        
-        let coor = locationManager.location?.coordinate
-        latitude = coor?.latitude
-        longitude = coor?.longitude
-        let location = CLLocation(latitude: latitude ?? 0, longitude: longitude ?? 0)
-        
-        convertToAddressWith(coordinate: location)
-        
-    }
     
     func convertToAddressWith(coordinate: CLLocation) {
         let geoCoder = CLGeocoder()
@@ -76,13 +63,35 @@ class ResultViewController: UIViewController, CLLocationManagerDelegate {
                   var addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] else {
                       return
                   }
-            addrList.removeLast()
+//            addrList.removeLast()
+            if let placemark = placemarks?.first{
+                if let subThoroughfare = placemark.subThoroughfare {
+                    addrList.append(subThoroughfare)
+                }
+            }
             let address = addrList.joined(separator: " ")
-            self.lblLocation.text = address
+            self.UpdateUi(text: address)
         }
     }
-
-
     
-
+    func UpdateUi(text: String){
+        DispatchQueue.main.async{
+            self.lblLocation.text = text
+        }
+    }
+}
+//MARK: -LocationManagerDelegate
+extension ResultViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            convertToAddressWith(coordinate: location)
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        print(error)
+    }
+    
 }
