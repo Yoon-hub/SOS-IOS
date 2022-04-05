@@ -257,12 +257,13 @@
                     <navigationItem key="navigationItem" id="xtw-Ix-ExM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bdf-Dp-we3">
                             <connections>
-                                <segue destination="Jqb-fq-5qv" kind="show" id="VWN-1i-LMK"/>
+                                <segue destination="Jqb-fq-5qv" kind="presentation" id="aD4-VW-OUF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableVIew" destination="anv-iU-UFi" id="Qc6-4e-KN3"/>
+                        <outlet property="tableVIew" destination="anv-iU-UFi" id="8qy-yf-9xZ"/>
+                        <outlet property="tableView" destination="anv-iU-UFi" id="Qc6-4e-KN3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hb-ri-muQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -274,29 +275,29 @@
             <objects>
                 <viewController id="Jqb-fq-5qv" customClass="AddViewController" customModule="Sos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uok-az-YCP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="s1b-1q-pht">
-                                <rect key="frame" x="70" y="66" width="274" height="40"/>
+                                <rect key="frame" x="70" y="115" width="274" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ESu-Yh-Nk9">
-                                <rect key="frame" x="70" y="114" width="274" height="40"/>
+                                <rect key="frame" x="70" y="163" width="274" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go" textContentType="tel"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="kRV-n3-opB">
-                                <rect key="frame" x="87" y="211" width="240" height="63"/>
+                                <rect key="frame" x="87" y="248" width="240" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzJ-ix-BWy">
-                                <rect key="frame" x="106" y="211" width="202" height="63"/>
+                                <rect key="frame" x="106" y="248" width="202" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>

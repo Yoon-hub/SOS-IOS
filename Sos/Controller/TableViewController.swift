@@ -16,10 +16,10 @@ class TableViewController: UITableViewController {
 
     @IBOutlet var tableVIew: UITableView!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissPostCommentNotification(_:)), name: DidDismissPostCommentViewController, object: nil)
         
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTable")
     }
@@ -58,8 +58,19 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        tableVIew.reloadData()
+//    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableVIew.reloadData()
+    @objc func didDismissPostCommentNotification(_ noti: Notification) {
+      // 이 부분을 해주어야 다시 comment들을 api로 가져올 수 있었다.
+      // 즉, reload할 데이터를 불러와야 바뀌는 게 있다는 의미다.
+      // 안 해서 고생함...
+        OperationQueue.main.addOperation { // DispatchQueue도 가능.
+            self.tableView.reloadData()
+        }
+
     }
+    
 }
