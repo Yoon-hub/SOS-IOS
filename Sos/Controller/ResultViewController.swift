@@ -88,6 +88,7 @@ extension ResultViewController: CLLocationManagerDelegate{
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             convertToAddressWith(coordinate: location)
+            print("heelpo")
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
