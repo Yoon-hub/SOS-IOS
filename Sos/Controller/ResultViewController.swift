@@ -14,6 +14,7 @@ class ResultViewController: UIViewController {
     @IBOutlet var lblLocation: UILabel!
     var sirenSound : AVAudioPlayer!
     var siren :Bool?
+    var location : CLLocation?
     let locationManager = CLLocationManager()
 
     
@@ -23,9 +24,11 @@ class ResultViewController: UIViewController {
         sirenCheck()
         navigationItem.hidesBackButton = true
         
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        if let opLocation = location{
+            convertToAddressWith(coordinate: opLocation)
+        } else{
+            UpdateUi(text: "현재 위치정보 업데이트 중")
+        }
         
     }
     
@@ -80,19 +83,6 @@ class ResultViewController: UIViewController {
         }
     }
 }
-//MARK: -LocationManagerDelegate
-extension ResultViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            locationManager.stopUpdatingLocation()
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            convertToAddressWith(coordinate: location)
-            print("heelpo")
-        }
-    }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
-        print(error)
-    }
+
     
-}
+

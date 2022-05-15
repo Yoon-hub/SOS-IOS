@@ -11,13 +11,13 @@ import MessageUI
 import CoreLocation
 
 
-class MainViewController: UIViewController{
+class MainViewController: UIViewController, CLLocationManagerDelegate {
     
         @IBOutlet var mSwitch: UISwitch!
         @IBOutlet var lblSiren: UILabel!
         let locationManager = CLLocationManager()
         
-        var strLocation = ""
+        var strLocation = "현재 위치정보 업데이트중"
         var nowLocation:CLLocation!
         var timer = Timer()
         var siren = true
@@ -35,6 +35,21 @@ class MainViewController: UIViewController{
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
             locationManager.requestLocation()
+            
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            nowLocation = location
+            strLocation = String("\(nowLocation!)")
+            print(strLocation)
+                    }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        print(error)
     }
     
     @IBAction func btnSosDown(_ sender: UIButton) {
@@ -57,6 +72,7 @@ class MainViewController: UIViewController{
         if segue.identifier == "sosResult"{
             let destinationVC = segue.destination as! ResultViewController
             destinationVC.siren = self.siren
+            destinationVC.location = self.nowLocation
         }
     }
     
@@ -87,7 +103,7 @@ class MainViewController: UIViewController{
     
     @IBAction func call(_ sender: UIButton) {
         print("push")
-        if let url = NSURL(string: "tel://01041705700"), UIApplication.shared.canOpenURL(url as URL){
+        if let url = NSURL(string: "tel://112"), UIApplication.shared.canOpenURL(url as URL){
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
@@ -113,8 +129,9 @@ class MainViewController: UIViewController{
     """
     
     present(composeViewController, animated: true, completion: nil)
-}
+    }
     
+
     
 }
 
@@ -137,23 +154,6 @@ extension MainViewController: MFMessageComposeViewControllerDelegate {
     }
 }
 
-//MARK: -LocationManagerDelegate
-extension MainViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            locationManager.stopUpdatingLocation()
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            nowLocation = location
-            strLocation = String("\(nowLocation!)")
-            print(strLocation)
-                    }
-    }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
-        print(error)
-    }
-    
-}
 
 
 
