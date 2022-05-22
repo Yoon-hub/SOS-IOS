@@ -111,7 +111,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.79607843137254897" green="0.24705882352941178" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="qae-bD-aIQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1nn-Z6-nuz"/>
                             <constraint firstItem="8WO-0X-w62" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="54" id="3Oe-Tv-Ufm"/>

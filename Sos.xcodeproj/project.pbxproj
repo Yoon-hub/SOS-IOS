@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		677E92302839DB260065AF6F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677E922F2839DB260065AF6F /* WidgetKit.framework */; };
+		677E92322839DB260065AF6F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677E92312839DB260065AF6F /* SwiftUI.framework */; };
+		677E92352839DB260065AF6F /* SosMainViewWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E92342839DB260065AF6F /* SosMainViewWidget.swift */; };
+		677E92372839DB270065AF6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 677E92362839DB270065AF6F /* Assets.xcassets */; };
+		677E923B2839DB270065AF6F /* SosMainViewWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 677E922D2839DB260065AF6F /* SosMainViewWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		67A9D03027E63163000C0059 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9D02F27E63163000C0059 /* ResultViewController.swift */; };
 		67A9D03227E6E817000C0059 /* siren.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A9D03127E6E817000C0059 /* siren.png */; };
 		67A9D03427E6EA1B000C0059 /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A9D03327E6EA1B000C0059 /* redButton.png */; };
@@ -29,7 +34,37 @@
 		67F6CE1F27F4D163006B76EB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F6CE1E27F4D163006B76EB /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		677E92392839DB270065AF6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C7ECA327E5E7990092A561 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 677E922C2839DB260065AF6F;
+			remoteInfo = SosMainViewWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		677E923C2839DB270065AF6F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				677E923B2839DB270065AF6F /* SosMainViewWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		677E922D2839DB260065AF6F /* SosMainViewWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SosMainViewWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		677E922F2839DB260065AF6F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		677E92312839DB260065AF6F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		677E92342839DB260065AF6F /* SosMainViewWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosMainViewWidget.swift; sourceTree = "<group>"; };
+		677E92362839DB270065AF6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		677E92382839DB270065AF6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67A9D02F27E63163000C0059 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		67A9D03127E6E817000C0059 /* siren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = siren.png; sourceTree = "<group>"; };
 		67A9D03327E6EA1B000C0059 /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
@@ -55,6 +90,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		677E922A2839DB260065AF6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677E92322839DB260065AF6F /* SwiftUI.framework in Frameworks */,
+				677E92302839DB260065AF6F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67C7ECA827E5E7990092A561 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,10 +109,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		677E922E2839DB260065AF6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				677E922F2839DB260065AF6F /* WidgetKit.framework */,
+				677E92312839DB260065AF6F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		677E92332839DB260065AF6F /* SosMainViewWidget */ = {
+			isa = PBXGroup;
+			children = (
+				677E92342839DB260065AF6F /* SosMainViewWidget.swift */,
+				677E92362839DB270065AF6F /* Assets.xcassets */,
+				677E92382839DB270065AF6F /* Info.plist */,
+			);
+			path = SosMainViewWidget;
+			sourceTree = "<group>";
+		};
 		67C7ECA227E5E7990092A561 = {
 			isa = PBXGroup;
 			children = (
 				67C7ECAD27E5E7990092A561 /* Sos */,
+				677E92332839DB260065AF6F /* SosMainViewWidget */,
+				677E922E2839DB260065AF6F /* Frameworks */,
 				67C7ECAC27E5E7990092A561 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				67C7ECAB27E5E7990092A561 /* Sos.app */,
+				677E922D2839DB260065AF6F /* SosMainViewWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +210,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		677E922C2839DB260065AF6F /* SosMainViewWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 677E923F2839DB270065AF6F /* Build configuration list for PBXNativeTarget "SosMainViewWidgetExtension" */;
+			buildPhases = (
+				677E92292839DB260065AF6F /* Sources */,
+				677E922A2839DB260065AF6F /* Frameworks */,
+				677E922B2839DB260065AF6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SosMainViewWidgetExtension;
+			productName = SosMainViewWidgetExtension;
+			productReference = 677E922D2839DB260065AF6F /* SosMainViewWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		67C7ECAA27E5E7990092A561 /* Sos */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67C7ECBF27E5E79B0092A561 /* Build configuration list for PBXNativeTarget "Sos" */;
@@ -151,10 +234,12 @@
 				67C7ECA727E5E7990092A561 /* Sources */,
 				67C7ECA827E5E7990092A561 /* Frameworks */,
 				67C7ECA927E5E7990092A561 /* Resources */,
+				677E923C2839DB270065AF6F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				677E923A2839DB270065AF6F /* PBXTargetDependency */,
 			);
 			name = Sos;
 			productName = Sos;
@@ -168,9 +253,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					677E922C2839DB260065AF6F = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
 					67C7ECAA27E5E7990092A561 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -190,11 +278,20 @@
 			projectRoot = "";
 			targets = (
 				67C7ECAA27E5E7990092A561 /* Sos */,
+				677E922C2839DB260065AF6F /* SosMainViewWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		677E922B2839DB260065AF6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677E92372839DB270065AF6F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67C7ECA927E5E7990092A561 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +313,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		677E92292839DB260065AF6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				677E92352839DB260065AF6F /* SosMainViewWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		67C7ECA727E5E7990092A561 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +338,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		677E923A2839DB270065AF6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 677E922C2839DB260065AF6F /* SosMainViewWidgetExtension */;
+			targetProxy = 677E92392839DB270065AF6F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		67C7ECB427E5E7990092A561 /* Main.storyboard */ = {
@@ -254,6 +367,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		677E923D2839DB270065AF6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XXJ2YB9QP5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SosMainViewWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SosMainViewWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.choi.Sos.youjae.SosMainViewWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		677E923E2839DB270065AF6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XXJ2YB9QP5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SosMainViewWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SosMainViewWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.choi.Sos.youjae.SosMainViewWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		67C7ECBD27E5E79B0092A561 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,6 +542,7 @@
 		67C7ECC027E5E79B0092A561 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -403,6 +573,7 @@
 		67C7ECC127E5E79B0092A561 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -433,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		677E923F2839DB270065AF6F /* Build configuration list for PBXNativeTarget "SosMainViewWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				677E923D2839DB270065AF6F /* Debug */,
+				677E923E2839DB270065AF6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		67C7ECA627E5E7990092A561 /* Build configuration list for PBXProject "Sos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
